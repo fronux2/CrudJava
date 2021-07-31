@@ -31,11 +31,12 @@ public class LoginDAO extends Conexion{
             return false;
         }finally{
             try {
-                con.close();                
+                con.close();
             } catch (SQLException e) {
-                System.err.println(e);                
+                System.err.println(e);
+                
             }
-        }      
-       
+        }       
+       return false;
     }
 }
