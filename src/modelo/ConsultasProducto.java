@@ -36,7 +36,7 @@ public class ConsultasProducto extends Conexion{
                 con.close();
             } catch (SQLException e) {
                 System.err.println(e);
-            }        
+            }
         }   
     }    
     

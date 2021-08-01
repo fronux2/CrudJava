@@ -11,28 +11,33 @@ package modelo;
  */
 public class Login {
 
-    public String getUser() {
-        return user;
+    public int getId_login() {
+        return id_login;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setId_login(int id_login) {
+        this.id_login = id_login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" + "user=" + user + ", password=" + password + '}';
+    public String getContrasena() {
+        return contrasena;
     }
-    
-    private String user;
-    private String password;
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+   
+    private int id_login;
+    private String usuario;
+    private String contrasena;
     
 }

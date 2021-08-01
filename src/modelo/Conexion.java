@@ -26,11 +26,5 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Conexion Erronea" + e.getMessage());
         }    
         return conn;
-    }
-       
-   
-            
-            
-  
-    
+    }   
 }
