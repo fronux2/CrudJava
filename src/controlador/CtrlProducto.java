@@ -4,9 +4,13 @@ package controlador;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import modelo.ConsultasProducto;
 import modelo.Login;
 import modelo.LoginDAO;
@@ -26,6 +30,7 @@ public class CtrlProducto implements ActionListener{
     private LoginView lv;
     private Login l;
     private LoginDAO ld;
+    DefaultTableModel modeloT = new DefaultTableModel();
     
     public CtrlProducto(Producto mod, ConsultasProducto modC, Vista frm, LoginView lv, LoginDAO ld, Login l)
     {
@@ -55,7 +60,7 @@ public class CtrlProducto implements ActionListener{
     }
     
     public void LLenarTabla(JTable tabla){
-        DefaultTableModel modeloT = new DefaultTableModel();
+        
         tabla.setModel(modeloT);
         
         modeloT.addColumn("id");
@@ -165,14 +170,26 @@ public class CtrlProducto implements ActionListener{
             l.setContrasena(lv.txtPassword.getText());
             
             if(ld.login(l))
-            {
-                Vista v = new Vista();
-                v.setVisible(true);
-                v.setLocationRelativeTo(null);
+            {   
+                Producto mod = new Producto();
+                ConsultasProducto modC = new ConsultasProducto();
+                Vista frm = new Vista();
+                LoginView lv = new LoginView();
+                Login l = new Login();
+                LoginDAO ld = new LoginDAO();
+                CtrlProducto ctrl = new CtrlProducto(mod, modC, frm, lv, ld, l);
+                ctrl.iniciar();
+                
+                
+                frm.setVisible(true);
+                frm.setLocationRelativeTo(null);
                 lv.setVisible(false);     
             }else{JOptionPane.showMessageDialog(null, "No se encontro registro");}
         }  
     }
+    
+                             
+
     
     public void limpiarl()
     {
