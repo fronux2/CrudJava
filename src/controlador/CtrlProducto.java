@@ -51,7 +51,7 @@ public class CtrlProducto implements ActionListener{
         frm.setTitle("Productos");
         frm.setLocationRelativeTo(null);
         frm.txtId.setVisible(false);
-        lv.txtId.setVisible(false);
+        
     }
     
     public void LLenarTabla(JTable tabla){
@@ -166,9 +166,10 @@ public class CtrlProducto implements ActionListener{
             
             if(ld.login(l))
             {
-                
-                JOptionPane.showMessageDialog(null, "se encontro registro");
-                        
+                Vista v = new Vista();
+                v.setVisible(true);
+                v.setLocationRelativeTo(null);
+                lv.setVisible(false);     
             }else{JOptionPane.showMessageDialog(null, "No se encontro registro");}
         }  
     }
