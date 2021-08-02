@@ -4,6 +4,7 @@ package controlador;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -53,11 +54,27 @@ public class CtrlProducto implements ActionListener{
     {
         lv.setTitle("Login");
         lv.setLocationRelativeTo(null);
-        frm.setTitle("Productos");
-        frm.setLocationRelativeTo(null);
-        frm.txtId.setVisible(false);
+        lv.setVisible(true);
+        //frm.setTitle("Productos");
+        //frm.setLocationRelativeTo(null);
+        //frm.txtId.setVisible(false);       
         
     }
+    
+    public void iniciarb()
+    {
+        //lv.setTitle("Login");
+        //lv.setLocationRelativeTo(null);
+        frm.setTitle("Productos");
+        frm.setLocationRelativeTo(null);
+        frm.txtId.setVisible(false);   
+        frm.setVisible(true);
+        modC.Cagar_combobox(frm.cbox_nombre);
+        
+        
+    }
+    
+    
     
     public void LLenarTabla(JTable tabla){
         
@@ -171,21 +188,24 @@ public class CtrlProducto implements ActionListener{
             
             if(ld.login(l))
             {   
-                Producto mod = new Producto();
-                ConsultasProducto modC = new ConsultasProducto();
-                Vista frm = new Vista();
-                LoginView lv = new LoginView();
-                Login l = new Login();
-                LoginDAO ld = new LoginDAO();
+                
                 CtrlProducto ctrl = new CtrlProducto(mod, modC, frm, lv, ld, l);
-                ctrl.iniciar();
+                lv.setVisible(false);
+                ctrl.iniciarb();
                 
                 
-                frm.setVisible(true);
-                frm.setLocationRelativeTo(null);
-                lv.setVisible(false);     
+                //frm.show();
+                
+                //frm.setVisible(true);
+                
+                //lv.dispose();
+                
+                
+                   
             }else{JOptionPane.showMessageDialog(null, "No se encontro registro");}
         }  
+        
+       
     }
     
                              

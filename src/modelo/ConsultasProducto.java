@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import static modelo.Conexion.getConexion;
 
 /**
@@ -152,6 +153,29 @@ public class ConsultasProducto extends Conexion{
         }
         return listaProducto;
     }    
+    
+    public boolean Cagar_combobox(JComboBox cbox_nombre){
+        String sql= "";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+        try {
+            sql = "Select nombre from producto ";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            cbox_nombre.addItem("");
+            while(rs.next()){
+                cbox_nombre.addItem(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+        }finally{
+            try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+        return true;
+    }
 }
 
 

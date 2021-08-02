@@ -29,7 +29,10 @@ public class CRUDMVC {
         
         CtrlProducto ctrl = new CtrlProducto(mod, modC, frm, lv, ld, l);
         ctrl.iniciar();
-        lv.setVisible(true);
-        //frm.setVisible(true);
+        
+       
+        
+        
+        
     }
 }

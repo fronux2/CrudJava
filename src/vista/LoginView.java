@@ -101,13 +101,11 @@ public class LoginView extends javax.swing.JFrame {
 
     private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
        //Se asegura de capturar la tecla ENTER y descartar la tecla ENTER
-        char cTeclaPresionada = evt.getKeyChar();
-       
+        char cTeclaPresionada = evt.getKeyChar();        
         //da click al boton de Aceptar al detectar la tecla ENTER
        if(cTeclaPresionada == KeyEvent.VK_ENTER){
            //ejecuta el de Aceptar(dar click)
-           btnAceptar.doClick();
-       
+           btnAceptar.doClick();      
        }
     }//GEN-LAST:event_txtPasswordKeyTyped
 
